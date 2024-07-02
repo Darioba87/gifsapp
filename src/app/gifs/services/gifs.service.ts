@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Gif, SearchResponse } from '../interfaces/gifs.interfaces';
+import { environment } from 'src/environments/environment.development';
 
 
 
@@ -10,8 +11,8 @@ export class GifsService {
     public gifList: Gif[] = [];
 
     private _tagsHistory: string[] = [];
-    private serviceUrl: string = 'https://api.giphy.com/v1/gifs'
-    private apiKey: string = '2VEVtJ3zPP5rUFBXO2yxuGzI6QvlSCfS';
+    private serviceUrl: string = environment.apiUrl
+    private apiKey: string = environment.apiKey;
 
     constructor(private http: HttpClient) {
         this.loadLocalStorage();
